@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   name = "postman-${version}";
-  version = "5.5.3";
+  version = "6.1.3";
 
   src = fetchurl {
     url = "https://dl.pstmn.io/download/version/${version}/linux64";
-    sha1 = "BC0C6117BEC6D1638FD18A0E2A580617669A9297";
+    sha256 = "03992g78v9lyqqj5p0vxga4c2dj4x22xfz9k45lkj5j4abhxl23f";
     name = "${name}.tar.gz";
   };
 
@@ -17,8 +17,8 @@ stdenv.mkDerivation rec {
   buildPhase = ":";   # nothing to build
 
   icon = fetchurl {
-    url = "https://www.getpostman.com/img-rebrand/logo.png";
-    sha256 = "0jdhl9c07b1723j2f172z3s5p5lh8sqa1rcvdzz3h6z5zwn21g7v";
+    url = "https://www.getpostman.com/img/v2/media-kit/Logo/PNG/pm-logo-vert.png";
+    sha256 = "1xsy3bg09rmihmpg36ry23han7jan8gd66731fd8c4mr4kip3a8g";
   };
 
   desktopItem = makeDesktopItem {
