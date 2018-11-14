@@ -1098,6 +1098,8 @@ with pkgs;
 
   cucumber = callPackage ../development/tools/cucumber {};
 
+  cypress = callPackage ../development/tools/cypress {};
+
   daemontools = callPackage ../tools/admin/daemontools { };
 
   dale = callPackage ../development/compilers/dale { };
