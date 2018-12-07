@@ -4,7 +4,7 @@
 
 let
 
-  version = "3.0.2";
+  version = "3.1.1";
 
   rpath = stdenv.lib.makeLibraryPath [
     alsaLib
@@ -46,7 +46,7 @@ let
     if stdenv.system == "x86_64-linux" then
       fetchurl {
         url = "https://download.cypress.io/desktop/${version}?platform=linux64";
-        sha256 = "0p0vq7nzf78wb1d4ncmqmr8ywcxdr8qjdv1fg7zf5cdw7hvfbrva";
+        sha256 = "1b4gxiv8pkxflshbfr3qadm1qsznls5q22nwv7vm2ciadnnz24km";
       }
     else
       throw "Cypress is not supported on ${stdenv.system}";
