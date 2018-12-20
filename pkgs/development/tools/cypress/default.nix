@@ -76,6 +76,9 @@ in stdenv.mkDerivation {
     mkdir $out/bin
     mkdir -p $out/share/applications
     ln -s $out/Cypress/Cypress $out/bin/cypress
+
+    #If we don't mock the binary_state.json file, cypress will attempt to write to this folder
+    echo '{ "verified": true }' > $out/Cypress/binary_state.json
     substituteAll ${./cypress.desktop} $out/share/applications/cypress.desktop
   '';
 
