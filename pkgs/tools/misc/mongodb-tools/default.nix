@@ -11,7 +11,7 @@ with stdenv.lib;
 
 buildGoPackage rec {
   name = "mongo-tools-${version}";
-  version = "3.7.2";
+  version = "4.1.6";
   rev = "r${version}";
 
   goPackagePath = "github.com/mongodb/mongo-tools";
@@ -21,7 +21,7 @@ buildGoPackage rec {
     inherit rev;
     owner = "mongodb";
     repo = "mongo-tools";
-    sha256 = "1y5hd4qw7422sqkj8vmy4agscvin3ck54r515bjrzn69iw73nhfl";
+    sha256 = "014gpf193mdv6hnjqajg5y5i457s3s83wnjk8spd0mygk882y2nf";
   };
 
   nativeBuildInputs = [ pkgconfig ];
