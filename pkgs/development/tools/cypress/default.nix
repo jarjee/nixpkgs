@@ -1,10 +1,10 @@
 { stdenv, fetchurl, unzip
 , alsaLib, atk, cairo, cups, curl, dbus, expat, fontconfig, freetype, glib
-, gnome2, libnotify, libxcb, nspr, nss, systemd, xorg }:
+, gnome2, libnotify, libxcb, nspr, nss, systemd, xorg, gtk3 }:
 
 let
 
-  version = "3.2.0";
+  version = "3.4.0";
 
   rpath = stdenv.lib.makeLibraryPath [
     alsaLib
@@ -21,6 +21,7 @@ let
     gnome2.gdk_pixbuf
     gnome2.gtk
     gnome2.pango
+    gtk3
     libnotify
     libxcb
     nspr
@@ -45,8 +46,8 @@ let
   src =
     if stdenv.system == "x86_64-linux" then
       fetchurl {
-        url = "https://download.cypress.io/desktop/${version}?platform=linux64";
-        sha256 = "0vz1dv7l10kzaqbsgsbvma531n5pi3vfdnyqpwia5b0m31j6wj0y";
+        url = "https://download.cypress.io/desktop/${version}?platform=linux";
+        sha256 = "0in9y2d8sf4l9hl32l8kw5nkbxsm0hsz0dnjlq041a55m7cqq7n3";
       }
     else
       throw "Cypress is not supported on ${stdenv.system}";
@@ -58,7 +59,7 @@ in stdenv.mkDerivation {
 
   unpackPhase = "true";
 
-  buildInputs = [ unzip ];
+  buildInputs = [ unzip gtk3 ];
 
   buildCommand = ''
     IFS=$'\n'
